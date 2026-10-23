@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard Prototype</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap 5 (Layout only) -->
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+
+    <div class="container main-wrapper">
+        <!-- Search Section -->
+        <div class="row justify-content-center pt-5">
+            <div class="col-12 col-md-8 col-lg-6">
+                <form id="search-form" class="search-box glass-panel">
+                    <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+                    <button type="submit" id="search-btn">Search</button>
+                </form>
+                <div id="error-message" class="error-text"></div>
+            </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <div id="loading-spinner" class="spinner d-none"></div>
+            </div>
+        </div>
+
+        <!-- Main Dashboard Content -->
+        <div id="dashboard-content" class="d-none">
+            <!-- Current Weather Card -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-12 col-md-8 col-lg-6">
+                    <div class="current-weather glass-panel">
+                        <h2 id="city-name" class="city-title">London</h2>
+                        <div class="weather-main">
+                            <span id="weather-icon" class="weather-emoji">☀️</span>
+                            <h1 id="temperature" class="temp-display">--°C</h1>
+                        </div>
+                        <h3 id="weather-desc" class="weather-desc">--</h3>
+
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <span class="detail-label">Humidity</span>
+                                <span id="humidity" class="detail-val">--%</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Wind Speed</span>
+                                <span id="wind-speed" class="detail-val">-- km/h</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5-Day Forecast -->
+            <div class="row justify-content-center mt-5">
+                <div class="col-12 col-lg-10">
+                    <h4 class="forecast-title">5-Day Forecast</h4>
+                    <div class="row g-3" id="forecast-container">
+                        <!-- Forecast cards injected dynamically by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Scripts -->
+    <script src="script.js"></script>
+</body>
+</html>
